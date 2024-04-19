@@ -5,7 +5,7 @@ const Heading = (props) => {
   return(
     <div className="heading">
       <h1 className="heading__title">Todo</h1>
-      <button className="heading__theme-toggle" onClick={() => props.toggleDarkMode()}>
+      <button className="btn" onClick={() => props.toggleDarkMode()}>
         <img src={props.darkMode ? sun : moon} alt="Toggle theme icon." />
       </button>
     </div>

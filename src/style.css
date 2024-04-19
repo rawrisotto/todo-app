@@ -42,7 +42,12 @@ body {
 main {
   width: 700px;
   margin: 5rem 1rem;
-  border: 1px solid red;
+}
+
+.btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /* Heading Styles */
@@ -59,8 +64,48 @@ main {
   font-size: 3rem;
 }
 
-.heading__theme-toggle {
-  background: transparent;
-  border: none;
+/* Item Styles */
+.todo-item {
+  display: flex;
+  align-items: center;
+  background: var(--clr-dark-800);
+  padding: 1rem;
+  color: var(--clr-dark-300);
   cursor: pointer;
+}
+
+.checkbox {
+  width: 25px;
+  height: 25px;
+  border: 1px solid var(--clr-dark-600);
+  border-radius: 50%;
+  background: transparent;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.checkbox.checked {
+  background: red;
+}
+/* 
+.checkbox.checked {
+  background-image: url('/assets/icon-check.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.todo-item:hover .checkbox,
+.checkbox:hover {
+  background: linear-gradient(var(--clr-dark-800), var(--clr-dark-800)) padding-box,
+              linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+  border: 1px solid transparent;
+} */
+
+.todo-item > .btn {
+  margin-left: auto;
+  visibility: hidden;
+}
+
+.todo-item:hover > .btn {
+  visibility: visible;
 }
