@@ -64,14 +64,21 @@ main {
   font-size: 3rem;
 }
 
+/* Todo List Styles */
+.todo-list {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: var(--clr-dark-800);
+}
+
 /* Item Styles */
 .todo-item {
   display: flex;
   align-items: center;
-  background: var(--clr-dark-800);
   padding: 1rem;
   color: var(--clr-dark-300);
   cursor: pointer;
+  border-bottom: 1px solid var(--clr-dark-700);
 }
 
 .checkbox {
@@ -108,4 +115,25 @@ main {
 
 .todo-item:hover > .btn {
   visibility: visible;
+}
+
+/* Todo Footer Styles */
+.todo-footer {
+  display: flex;
+  padding: 0.5rem 1rem;
+  color: var(--clr-dark-600);
+}
+
+.center-wrapper {
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+}
+
+.todo-footer .btn {
+  color: inherit;
+}
+
+.todo-footer .btn:hover {
+  color: var(--clr-primary-400);
 }

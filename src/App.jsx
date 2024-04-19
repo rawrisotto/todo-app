@@ -27,10 +27,8 @@ function App() {
   };
 
   const handleDeleteTodo = (id) => {
-    setTodos(prevState => 
-      prevState.filter(todo => todo.id !== id)
-    )
-  }
+    setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
+  };
 
   const todosElements = todos.map((todo) => {
     return (
@@ -46,7 +44,18 @@ function App() {
   return (
     <main>
       <Heading darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      {todosElements}
+      <section className="todo-list">
+        {todosElements}
+        <div className="todo-footer">
+          <p>{todos ? todos.length : "0"} items left</p>
+          <div className="center-wrapper">
+            <button className="btn">All</button>
+            <button className="btn">Active</button>
+            <button className="btn">Completed</button>
+          </div>
+          <button className="btn">Clear Completed</button>
+        </div>
+      </section>
     </main>
   );
 }
