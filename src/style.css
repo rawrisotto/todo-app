@@ -134,6 +134,7 @@ main {
   color: inherit;
 }
 
-.todo-footer .btn:hover {
+.todo-footer .btn:hover,
+.todo-footer .btn.current {
   color: var(--clr-primary-400);
 }

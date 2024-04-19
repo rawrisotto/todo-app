@@ -6,6 +6,7 @@ import { data } from "./data";
 function App() {
   const [todos, setTodos] = useState(data);
   const [darkMode, setDarkMode] = useState(true);
+  const [type, setType] = useState("");
 
   const toggleDarkMode = () => {
     setDarkMode((prevState) => !prevState);
@@ -30,7 +31,13 @@ function App() {
     setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
   };
 
-  const todosElements = todos.map((todo) => {
+  const displayedTodos = type
+    ? type === "active"
+      ? todos.filter((todo) => todo.completed === false)
+      : todos.filter((todo) => todo.completed === true)
+    : todos;
+
+  const todosElements = displayedTodos.map((todo) => {
     return (
       <TodoItem
         key={todo.id}
@@ -49,9 +56,15 @@ function App() {
         <div className="todo-footer">
           <p>{todos ? todos.length : "0"} items left</p>
           <div className="center-wrapper">
-            <button className="btn">All</button>
-            <button className="btn">Active</button>
-            <button className="btn">Completed</button>
+            <button className={"btn " + (type === "" ? "current" : null)} onClick={() => setType("")}>
+              All
+            </button>
+            <button className={"btn " + (type === "active" ? "current" : null)} onClick={() => setType("active")}>
+              Active
+            </button>
+            <button className={"btn " + (type === "completed" ? "current" : null)} onClick={() => setType("completed")}>
+              Completed
+            </button>
           </div>
           <button className="btn">Clear Completed</button>
         </div>
