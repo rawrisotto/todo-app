@@ -31,6 +31,10 @@ function App() {
     setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
   };
 
+  const handleDeleteCompleted = () => {
+    setTodos(prevState => prevState.filter(todo => !todo.completed))
+  }
+
   const displayedTodos = type
     ? type === "active"
       ? todos.filter((todo) => todo.completed === false)
@@ -66,7 +70,7 @@ function App() {
               Completed
             </button>
           </div>
-          <button className="btn">Clear Completed</button>
+          <button className="btn" onClick={() => handleDeleteCompleted()}>Clear Completed</button>
         </div>
       </section>
     </main>
