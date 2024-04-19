@@ -26,12 +26,19 @@ function App() {
     );
   };
 
+  const handleDeleteTodo = (id) => {
+    setTodos(prevState => 
+      prevState.filter(todo => todo.id !== id)
+    )
+  }
+
   const todosElements = todos.map((todo) => {
     return (
       <TodoItem
         key={todo.id}
         todo={todo}
         handleCompleteTodo={handleCompleteTodo}
+        handleDeleteTodo={handleDeleteTodo}
       />
     );
   });
