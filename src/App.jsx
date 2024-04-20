@@ -36,6 +36,10 @@ function App() {
     setTodos(prevState => prevState.filter(todo => !todo.completed))
   }
 
+  const createNewTodo = (newTodo) => {
+    setTodos(prevState => [newTodo, ...prevState])
+  }
+
   const displayedTodos = type
     ? type === "active"
       ? todos.filter((todo) => todo.completed === false)
@@ -57,7 +61,7 @@ function App() {
     <main>
       <Heading darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
-      <NewTodo />
+      <NewTodo createNewTodo={createNewTodo} />
 
       <section className="todo-list">
         {todosElements}

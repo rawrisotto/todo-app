@@ -1,15 +1,43 @@
 import { useState } from "react"
+import { v4 as uuidv4 } from 'uuid';
 
-const NewTodo = () => {
-  const [data, setData] = useState({})
+const NewTodo = ({ createNewTodo }) => {
+  const [data, setData] = useState({ todo: "" });
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    createNewTodo({
+      id: uuidv4(),
+      name: data.todo,
+      completed: false
+    })
+    setData({ todo: "" })
+  }
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setData(prevState => ({
+      ...prevState,
+      [name]: value
+    }))
+  }
 
   return (
-    <div className="new-todo">
-      <label htmlFor="new-todo" className="sr-only">Create a new todo</label>
-      <button className="checkbox"></button>
-      <input type="text" id="new-todo" name="new-todo" placeholder="Create a new todo..." value={data.hidden} />
-    </div>
-  )
-}
+    <form className="new-todo" onSubmit={handleSubmit}>
+      <label htmlFor="todo" className="sr-only">
+        Create a new todo
+      </label>
+      <button className="checkbox" type="submit"></button>
+      <input
+        type="text"
+        id="todo"
+        name="todo"
+        placeholder="Create a new todo..."
+        value={data.todo}
+        onChange={handleChange}
+      />
+    </form>
+  );
+};
 
-export default NewTodo
+export default NewTodo;

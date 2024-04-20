@@ -92,6 +92,7 @@ main {
   background: transparent;
   border: none;
   color: var(--clr-dark-300);
+  width: 100%;
 }
 
 .new-todo > input:focus {
