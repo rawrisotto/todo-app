@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Heading from "./components/Heading";
 import TodoItem from "./components/TodoItem";
+import NewTodo from "./components/NewTodo"
 import { data } from "./data";
 
 function App() {
@@ -55,8 +56,12 @@ function App() {
   return (
     <main>
       <Heading darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+
+      <NewTodo />
+
       <section className="todo-list">
         {todosElements}
+
         <div className="todo-footer">
           <p>{todos ? todos.length : "0"} items left</p>
           <div className="center-wrapper">

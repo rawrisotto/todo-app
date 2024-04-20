@@ -1,8 +1,12 @@
-@import url('reset.css');
+@import url("reset.css");
 
 :root {
   --clr-primary-400: hsl(220, 98%, 61%);
-  --clr-primary-checkBackground: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  --clr-primary-checkBackground: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
 
   --clr-light-100: hsl(0, 0%, 98%);
   --clr-light-200: hsl(236, 33%, 92%);
@@ -31,7 +35,7 @@ body {
   font-size: var(--fs-base);
   font-weight: var(--fw-base);
   background-color: var(--clr-dark-900);
-  background-image: url('/assets/bg-desktop-dark.jpg');
+  background-image: url("/assets/bg-desktop-dark.jpg");
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -50,6 +54,15 @@ main {
   cursor: pointer;
 }
 
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* Heading Styles */
 .heading {
   display: flex;
@@ -62,6 +75,27 @@ main {
   text-transform: uppercase;
   letter-spacing: 1rem;
   font-size: 3rem;
+  font-weight: var(--fw-bold);
+}
+
+/* New Todo Styles */
+.new-todo {
+  background: var(--clr-dark-800);
+  margin: 3rem 0 2rem 0;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+.new-todo > input {
+  background: transparent;
+  border: none;
+  color: var(--clr-dark-300);
+}
+
+.new-todo > input:focus {
+  outline: none;
 }
 
 /* Todo List Styles */
