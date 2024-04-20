@@ -20,7 +20,9 @@ const TodoItem = (props) => {
         className={"checkbox " + (props.todo.completed ? "checked" : null)}
         onClick={(event) => toggleCompletion(event, props.todo.id)}
       ></button>
-      <p>{props.todo.name}</p>
+      <p
+        style={props.todo.completed ? {"textDecoration": "line-through"} : null}
+      >{props.todo.name}</p>
       <button
         className="btn"
         onClick={(event) => deleteItem(event, props.todo.id)}
