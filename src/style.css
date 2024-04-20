@@ -127,8 +127,25 @@ main {
 }
 
 .checkbox.checked {
-  background: red;
+  background: var(--clr-primary-checkBackground);
 }
+
+.checkbox:hover {
+  border: 1px solid transparent;
+  background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
+  -webkit-mask:
+     linear-gradient(#fff 0 0) padding-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+.checkbox.checked::before {
+  content: url('/assets/icon-check.svg');
+  position: relative;
+  top: -2px;
+}
+
 /* 
 .checkbox.checked {
   background-image: url('/assets/icon-check.svg');
