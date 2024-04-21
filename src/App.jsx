@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Heading from "./components/Heading";
 import TodoItem from "./components/TodoItem";
-import NewTodo from "./components/NewTodo"
+import NewTodo from "./components/NewTodo";
 import { data } from "./data";
 
 function App() {
@@ -33,12 +33,12 @@ function App() {
   };
 
   const handleDeleteCompleted = () => {
-    setTodos(prevState => prevState.filter(todo => !todo.completed))
-  }
+    setTodos((prevState) => prevState.filter((todo) => !todo.completed));
+  };
 
   const createNewTodo = (newTodo) => {
-    setTodos(prevState => [newTodo, ...prevState])
-  }
+    setTodos((prevState) => [newTodo, ...prevState]);
+  };
 
   const displayedTodos = type
     ? type === "active"
@@ -69,19 +69,51 @@ function App() {
         <div className="todo-footer">
           <p>{todos ? todos.length : "0"} items left</p>
           <div className="center-wrapper">
-            <button className={"btn " + (type === "" ? "current" : null)} onClick={() => setType("")}>
+            <button
+              className={"btn " + (type === "" ? "current" : null)}
+              onClick={() => setType("")}
+            >
               All
             </button>
-            <button className={"btn " + (type === "active" ? "current" : null)} onClick={() => setType("active")}>
+            <button
+              className={"btn " + (type === "active" ? "current" : null)}
+              onClick={() => setType("active")}
+            >
               Active
             </button>
-            <button className={"btn " + (type === "completed" ? "current" : null)} onClick={() => setType("completed")}>
+            <button
+              className={"btn " + (type === "completed" ? "current" : null)}
+              onClick={() => setType("completed")}
+            >
               Completed
             </button>
           </div>
-          <button className="btn" onClick={() => handleDeleteCompleted()}>Clear Completed</button>
+          <button className="btn" onClick={() => handleDeleteCompleted()}>
+            Clear Completed
+          </button>
         </div>
       </section>
+
+      <div className="filter-wrapper">
+        <button
+          className={"btn " + (type === "" ? "current" : null)}
+          onClick={() => setType("")}
+        >
+          All
+        </button>
+        <button
+          className={"btn " + (type === "active" ? "current" : null)}
+          onClick={() => setType("active")}
+        >
+          Active
+        </button>
+        <button
+          className={"btn " + (type === "completed" ? "current" : null)}
+          onClick={() => setType("completed")}
+        >
+          Completed
+        </button>
+      </div>
     </main>
   );
 }

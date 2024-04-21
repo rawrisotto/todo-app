@@ -44,7 +44,7 @@ body {
 }
 
 main {
-  width: 700px;
+  width: 550px;
   margin: 5rem 1rem;
 }
 
@@ -74,15 +74,15 @@ main {
   color: var(--clr-dark-100);
   text-transform: uppercase;
   letter-spacing: 1rem;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: var(--fw-bold);
 }
 
 /* New Todo Styles */
 .new-todo {
   background: var(--clr-dark-800);
-  margin: 3rem 0 2rem 0;
-  padding: 1rem;
+  margin: 2.25rem 0 2rem 0;
+  padding: 1.125rem 1.5rem; 
   display: flex;
   align-items: center;
   border-radius: 0.5rem;
@@ -110,7 +110,7 @@ main {
 .todo-item {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 1.125rem 1.5rem;
   color: var(--clr-dark-300);
   cursor: pointer;
   border-bottom: 1px solid var(--clr-dark-700);
@@ -130,7 +130,8 @@ main {
   background: var(--clr-primary-checkBackground);
 }
 
-.checkbox:hover {
+.checkbox:hover,
+.todo-item:hover .checkbox {
   border: 1px solid transparent;
   background: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
   -webkit-mask:
@@ -146,20 +147,6 @@ main {
   top: -2px;
 }
 
-/* 
-.checkbox.checked {
-  background-image: url('/assets/icon-check.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.todo-item:hover .checkbox,
-.checkbox:hover {
-  background: linear-gradient(var(--clr-dark-800), var(--clr-dark-800)) padding-box,
-              linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) border-box;
-  border: 1px solid transparent;
-} */
-
 .todo-item > .btn {
   margin-left: auto;
   visibility: hidden;
@@ -172,8 +159,9 @@ main {
 /* Todo Footer Styles */
 .todo-footer {
   display: flex;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   color: var(--clr-dark-600);
+  font-size: 0.875rem;
 }
 
 .center-wrapper {
@@ -182,11 +170,27 @@ main {
   gap: 1rem;
 }
 
-.todo-footer .btn {
+.filter-wrapper {
+  margin-top: 1rem;
+  background: var(--clr-dark-800);
+  color: var(--clr-dark-600);
+  padding: 0.75rem;
+  display: none;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.925rem;
+  border-radius: 0.25rem;
+}
+
+.todo-footer .btn,
+.filter-wrapper .btn {
   color: inherit;
+  font-size: inherit;
 }
 
 .todo-footer .btn:hover,
-.todo-footer .btn.current {
+.todo-footer .btn.current,
+.filter-wrapper .btn:hover,
+.filter-wrapper .btn.current {
   color: var(--clr-primary-400);
 }
