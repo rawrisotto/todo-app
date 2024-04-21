@@ -58,61 +58,63 @@ function App() {
   });
 
   return (
-    <main>
-      <Heading darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+    <main data-theme={darkMode ? "dark" : "light"}>
+      <div className="todo-app">
+        <Heading darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
-      <NewTodo createNewTodo={createNewTodo} />
+        <NewTodo createNewTodo={createNewTodo} />
 
-      <section className="todo-list">
-        {todosElements}
+        <section className="todo-list">
+          {todosElements}
 
-        <div className="todo-footer">
-          <p>{todos ? todos.length : "0"} items left</p>
-          <div className="center-wrapper">
-            <button
-              className={"btn " + (type === "" ? "current" : null)}
-              onClick={() => setType("")}
-            >
-              All
-            </button>
-            <button
-              className={"btn " + (type === "active" ? "current" : null)}
-              onClick={() => setType("active")}
-            >
-              Active
-            </button>
-            <button
-              className={"btn " + (type === "completed" ? "current" : null)}
-              onClick={() => setType("completed")}
-            >
-              Completed
+          <div className="todo-footer">
+            <p>{todos ? todos.length : "0"} items left</p>
+            <div className="center-wrapper">
+              <button
+                className={"btn " + (type === "" ? "current" : null)}
+                onClick={() => setType("")}
+              >
+                All
+              </button>
+              <button
+                className={"btn " + (type === "active" ? "current" : null)}
+                onClick={() => setType("active")}
+              >
+                Active
+              </button>
+              <button
+                className={"btn " + (type === "completed" ? "current" : null)}
+                onClick={() => setType("completed")}
+              >
+                Completed
+              </button>
+            </div>
+            <button className="btn" onClick={() => handleDeleteCompleted()}>
+              Clear Completed
             </button>
           </div>
-          <button className="btn" onClick={() => handleDeleteCompleted()}>
-            Clear Completed
+        </section>
+
+        <div className="filter-wrapper">
+          <button
+            className={"btn " + (type === "" ? "current" : null)}
+            onClick={() => setType("")}
+          >
+            All
+          </button>
+          <button
+            className={"btn " + (type === "active" ? "current" : null)}
+            onClick={() => setType("active")}
+          >
+            Active
+          </button>
+          <button
+            className={"btn " + (type === "completed" ? "current" : null)}
+            onClick={() => setType("completed")}
+          >
+            Completed
           </button>
         </div>
-      </section>
-
-      <div className="filter-wrapper">
-        <button
-          className={"btn " + (type === "" ? "current" : null)}
-          onClick={() => setType("")}
-        >
-          All
-        </button>
-        <button
-          className={"btn " + (type === "active" ? "current" : null)}
-          onClick={() => setType("active")}
-        >
-          Active
-        </button>
-        <button
-          className={"btn " + (type === "completed" ? "current" : null)}
-          onClick={() => setType("completed")}
-        >
-          Completed
-        </button>
       </div>
     </main>
   );

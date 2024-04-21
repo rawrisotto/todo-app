@@ -8,34 +8,58 @@
     hsl(280, 87%, 65%)
   );
 
-  --clr-light-100: hsl(0, 0%, 98%);
-  --clr-light-200: hsl(236, 33%, 92%);
-  --clr-light-400: hsl(233, 11%, 84%);
-  --clr-light-500: hsl(236, 9%, 61%);
-  --clr-light-700: hsl(235, 19%, 35%);
-
-  --clr-dark-100: hsl(236, 33%, 92%);
-  --clr-dark-300: hsl(234, 39%, 85%);
-  --clr-dark-400: hsl(234, 11%, 52%);
-  --clr-dark-600: hsl(233, 14%, 35%);
-  --clr-dark-700: hsl(237, 14%, 26%);
-  --clr-dark-800: hsl(235, 24%, 19%);
-  --clr-dark-900: hsl(235, 21%, 11%);
+  --clr-main-background: hsl(236, 33%, 92%);
+  --clr-todo-background: hsl(0, 0%, 98%);
+  --clr-border: hsl(233, 11%, 84%);
+  --clr-text-primary: hsl(235, 19%, 35%);
+  --clr-text-secondary: hsl(236, 9%, 61%);
+  --clr-logo: hsl(236, 33%, 92%);
 
   --ff-base: "Josefin Sans", sans-serif;
   --fs-base: 18px;
   --fw-base: 400;
   --fw-bold: 700;
+
+  --background-desktop-img: url('/assets/bg-desktop-light.jpg');
+  --background-mobile-img: url('/assets/bg-mobile-light.jpg');
+  /* --clr-light-100: hsl(0, 0%, 98%);
+  --clr-light-200: hsl(236, 33%, 92%);
+  --clr-light-400: hsl(233, 11%, 84%);
+  --clr-light-500: hsl(236, 9%, 61%);
+  --clr-light-700: hsl(235, 19%, 35%); */
+
+
+  /* --clr-dark-100: hsl(236, 33%, 92%);
+  --clr-dark-300: hsl(234, 39%, 85%);
+  --clr-dark-400: hsl(234, 11%, 52%);
+  --clr-dark-600: hsl(233, 14%, 35%);
+  --clr-dark-700: hsl(237, 14%, 26%);
+  --clr-dark-800: hsl(235, 24%, 19%);
+  --clr-dark-900: hsl(235, 21%, 11%); */
+
+  
+}
+
+[data-theme="dark"] {
+  --clr-main-background: hsl(235, 21%, 11%);
+  --clr-todo-background: hsl(235, 24%, 19%);
+  --clr-border: hsl(237, 14%, 26%);
+  --clr-text-primary: hsl(234, 39%, 85%);
+  --clr-text-secondary: hsl(233, 14%, 35%);
+  --clr-logo: hsl(236, 33%, 92%);
+
+  --background-desktop-img: url('/assets/bg-desktop-dark.jpg');
+  --background-mobile-img: url('/assets/bg-mobile-dark.jpg');
 }
 
 /* General Styles */
-body {
+main {
   min-height: 100vh;
   font-family: var(--ff-base);
   font-size: var(--fs-base);
   font-weight: var(--fw-base);
-  background-color: var(--clr-dark-900);
-  background-image: url("/assets/bg-desktop-dark.jpg");
+  background-color: var(--clr-main-background);
+  background-image: var(--background-desktop-img);
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -43,7 +67,7 @@ body {
   justify-content: center;
 }
 
-main {
+.todo-app {
   width: 550px;
   margin: 5rem 1rem;
 }
@@ -71,7 +95,7 @@ main {
 }
 
 .heading__title {
-  color: var(--clr-dark-100);
+  color: var(--clr-logo);
   text-transform: uppercase;
   letter-spacing: 1rem;
   font-size: 2.5rem;
@@ -80,7 +104,7 @@ main {
 
 /* New Todo Styles */
 .new-todo {
-  background: var(--clr-dark-800);
+  background: var(--clr-todo-background);
   margin: 2.25rem 0 2rem 0;
   padding: 1.125rem 1.5rem; 
   display: flex;
@@ -91,7 +115,7 @@ main {
 .new-todo > input {
   background: transparent;
   border: none;
-  color: var(--clr-dark-300);
+  color: var(--clr-text-primary);
   width: 100%;
 }
 
@@ -103,7 +127,7 @@ main {
 .todo-list {
   border-radius: 0.5rem;
   overflow: hidden;
-  background: var(--clr-dark-800);
+  background: var(--clr-todo-background);
 }
 
 /* Item Styles */
@@ -111,15 +135,15 @@ main {
   display: flex;
   align-items: center;
   padding: 1.125rem 1.5rem;
-  color: var(--clr-dark-300);
+  color: var(--clr-text-primary);
   cursor: pointer;
-  border-bottom: 1px solid var(--clr-dark-700);
+  border-bottom: 1px solid var(--clr-border);
 }
 
 .checkbox {
   width: 25px;
   height: 25px;
-  border: 1px solid var(--clr-dark-600);
+  border: 1px solid var(--clr-text-secondary);
   border-radius: 50%;
   background: transparent;
   margin-right: 1rem;
@@ -160,7 +184,7 @@ main {
 .todo-footer {
   display: flex;
   padding: 0.75rem 1rem;
-  color: var(--clr-dark-600);
+  color: var(--clr-text-secondary);
   font-size: 0.875rem;
 }
 
@@ -172,8 +196,8 @@ main {
 
 .filter-wrapper {
   margin-top: 1rem;
-  background: var(--clr-dark-800);
-  color: var(--clr-dark-600);
+  background: var(--clr-todo-background);
+  color: var(--clr-text-secondary);
   padding: 0.75rem;
   display: none;
   justify-content: center;
